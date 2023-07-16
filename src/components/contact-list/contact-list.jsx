@@ -1,4 +1,5 @@
-import { ListContainer, StyledList, Contact, Name, ButtonDelete, Number } from "./contact-list.styled"
+import { ListContainer, StyledList, Contact, Name, ButtonDelete, Number } from "./contact-list.styled";
+import PropTypes from 'prop-types';
 
 export const ContactList = ({ contacts, onDelete }) => {
     return (
@@ -12,4 +13,14 @@ export const ContactList = ({ contacts, onDelete }) => {
             </StyledList>
         </ListContainer>
     )
-}
+};
+
+ContactList.propTypes = {
+    contacts: PropTypes.arrayOf(
+        PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            id: PropTypes.string.isRequired,
+            number: PropTypes.string.isRequired,
+        })
+    )
+};
